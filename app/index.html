@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="primeiraApp" lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ :: consts.appName }}</title>
+    <link rel="stylesheet" href="/assets/css/deps.min.css"> <!-- Ref dos css-->
+    <link rel="stylesheet" href="/assets/css/app.min.css"> 
+</head>
+<body class="skin-blue fixed sidebar-mini">
+    <div class="wrapper">
+        <header class="main-header" ng-include="'/template/header/header.html'"></header> <!-- ng-include inclui html dentro da tag-->
+        <aside class= "main-sidebar" ng-include="'/template/menu/menu.html'"></aside>
+        <div class="content-wrapper" ui-view ></div> <!---  Toda viu q for renderizada será jogada dentro dessa div. Contéudo dinamicamente atualizado -->
+        <footer class="main-footer" ng-include="'/template/footer/footer.html'"></footer>
+    </div>
+
+    <script src="/assets/js/deps.min.js"></script>
+    <script src="/assets/js/app.min.js"></script>
+</body>
+</html>
+
+<!-- Single Page Aplication - Única página a ser carregada é essa 
+    carregando tudo q for necessário
+    e a partir desse carregamento somente o 
+    ui-view será atualizado de forma
+    dinâmica usando chamadas ajax
+-->
+

@@ -1,0 +1,37 @@
+<div class="col-xs-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="debt in ctrl.billingCycle.debts">
+                <td>
+                    <input ng-model="debt.name" class="form-control" placeholder="Informe o Nome" ng-readonly="ctrl.tabDelete || ctrl.tabView">
+                </td>
+                <td>
+                    <input ng-model="debt.value" ng-change="ctrl.updateDebtValues()" type="number" class="form-control" placeholder="Informe o Valor" ng-readonly="ctrl.tabDelete || ctrl.tabView">
+                </td>
+                <td>
+                    <input ng-model="debt.status" class="form-control" placeholder="Informe o Status" ng-readonly="ctrl.tabDelete || ctrl.tabView">
+                </td>
+                <td class="table-actions">
+                    <!--Para acessar o index dentro do ng-repeat usar $index -->
+                    <button class="btn btn-success" ng-disabled="ctrl.tabDelete || ctrl.tabView" ng-click="ctrl.addDebt($index)">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                    <button class="btn btn-warning" ng-disabled="ctrl.tabDelete || ctrl.tabView || (!debt.name && !debt.value && !debt.status)" ng-click="ctrl.cloneDebt($index, debt)">
+                        <i class="fa fa-clone"></i>
+                    </button>
+                    <button class="btn btn-danger" ng-disabled="ctrl.tabDelete || ctrl.tabView"  ng-click="ctrl.deleteDebt($index)">
+                        <i class="fa fa-trash-o"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
